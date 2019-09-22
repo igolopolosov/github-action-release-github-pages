@@ -12,7 +12,7 @@ COMMIT_MESSAGE=`jq '.commits[0].message' ${GITHUB_EVENT_PATH}`
 git config --global user.email "${COMMIT_EMAIL}"
 git config --global user.name "${COMMIT_NAME}"
 
-REPOSITORY_PATH="https://${GITHUB_ACCESS_TOKEN}@github.com/igolopolosov/$GITHUB_PAGES_REPO_NAME.git"
+REPOSITORY_PATH="https://${GITHUB_ACCESS_TOKEN}@github.com/$GITHUB_PAGES_REPO_AUTHOR/$GITHUB_PAGES_REPO_NAME.git"
 
 echo "⭐️ Clone $GITHUB_PAGES_REPO_NAME"
 cd $GITHUB_WORKSPACE
