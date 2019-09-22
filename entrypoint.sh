@@ -4,23 +4,23 @@ REPOSITORY_PATH="https://${GITHUB_ACCESS_TOKEN}@github.com/igolopolosov/igolopol
 
 
 echo "⭐️ Clone igolopolosov.github.io"
-cd $GITHUB_WORKSPACE
+cd /home/runner/work/igor
 git clone $REPOSITORY_PATH
 
 git config --global user.email "${COMMIT_EMAIL}"
 git config --global user.name "${COMMIT_NAME}"
 
 echo "⭐️ Clean old files"
-cd $GITHUB_WORKSPACE/igolopolosov.github.io
+cd ./igolopolosov.github.io
 rm bundle*
 rm index.html
 
 echo "⭐️ Copying started"
-cd $GITHUB_WORKSPACE/igor
-cp -R ./dist $GITHUB_WORKSPACE/igolopolosov.github.io
+cd ../igor
+cp -R ./dist ./igolopolosov.github.io
 
 echo "⭐️ Commit changes"
-cd $GITHUB_WORKSPACE/igolopolosov.github.io
+cd ../igolopolosov.github.io
 git add .
 git commit -m "Make auto release"
 
