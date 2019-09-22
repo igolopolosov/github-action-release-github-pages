@@ -4,7 +4,7 @@ echo "⭐️ Start"
 
 echo "⭐️ Configure git"
 
-apt-get install -y jq
+apk add jq
 COMMIT_EMAIL=`jq '.pusher.email' ${GITHUB_EVENT_PATH}`
 COMMIT_NAME=`jq '.pusher.name' ${GITHUB_EVENT_PATH}`
 
