@@ -18,21 +18,20 @@ echo "⭐️ Clone $GITHUB_PAGES_REPO_NAME"
 cd $GITHUB_WORKSPACE
 git clone $REPOSITORY_PATH
 
-echo "⭐️ Clean old files"
+echo "⭐️ Cleane old files by running $GITHUB_PAGES_CLEANUP_SCRIPT"
 cd ./$GITHUB_PAGES_REPO_NAME
-rm bundle*
-rm index.html
+eval "$GITHUB_PAGES_CLEANUP_SCRIPT"
 
-echo "⭐️ Copying started"
-cd ../dist
+echo "⭐️ Copy build from $PROJECT_BUILD_FOLDER"
+cd ../$PROJECT_BUILD_FOLDER
 cp -R * ../$GITHUB_PAGES_REPO_NAME
 
-echo "⭐️ Commit changes"
+echo "⭐️ Commit changes with message: $COMMIT_MESSAGE"
 cd ../$GITHUB_PAGES_REPO_NAME
 git add .
 git commit -m "Release: $COMMIT_MESSAGE"
 
-echo "⭐️ Push changes"
-git push $REPOSITORY_PATH master
+echo "⭐️ Push changes to $GITHUB_PAGES_RELEASE_BRANCH"
+git push $REPOSITORY_PATH $GITHUB_PAGES_RELEASE_BRANCH
 
 echo "⭐️ Finish"
