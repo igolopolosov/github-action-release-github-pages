@@ -23,11 +23,11 @@ rm bundle*
 rm index.html
 
 echo "⭐️ Copying started"
-cd ../
-cp -R ./dist/* ./igolopolosov.github.io
+cd ../dist
+cp -R * ../igolopolosov.github.io
 
 echo "⭐️ Commit changes"
-cd ./igolopolosov.github.io
+cd ../igolopolosov.github.io
 git add .
 git commit -m "Make auto release"
 
