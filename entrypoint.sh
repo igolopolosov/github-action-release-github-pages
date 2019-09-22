@@ -1,5 +1,28 @@
 #!/bin/sh -l
 
-echo "Hello $1"
-time=$(date)
-echo ::set-output name=time::$time
+REPOSITORY_PATH="https://${GITHUB_ACCESS_TOKEN}@github.com/igolopolosov/igolopolosov.github.io.git"
+
+
+echo "⭐️ Clone igolopolosov.github.io"
+cd $GITHUB_WORKSPACE
+git clone $REPOSITORY_PATH
+
+git config --global user.email "${COMMIT_EMAIL}"
+git config --global user.name "${COMMIT_NAME}"
+
+echo "⭐️ Clean old files"
+cd $GITHUB_WORKSPACE/igolopolosov.github.io
+rm bundle*
+rm index.html
+
+echo "⭐️ Copying started"
+cd $GITHUB_WORKSPACE/igor
+cp -R ./dist $GITHUB_WORKSPACE/igolopolosov.github.io
+
+echo "⭐️ Commit changes"
+cd $GITHUB_WORKSPACE/igolopolosov.github.io
+git add .
+git commit -m "Make auto release"
+
+echo "⭐️ Push changes"
+git push $REPOSITORY_PATH master
