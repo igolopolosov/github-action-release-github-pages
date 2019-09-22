@@ -7,6 +7,7 @@ echo "⭐️ Configure git"
 apk add jq
 COMMIT_EMAIL=`jq '.pusher.email' ${GITHUB_EVENT_PATH}`
 COMMIT_NAME=`jq '.pusher.name' ${GITHUB_EVENT_PATH}`
+COMMIT_MESSAGE=`jq '.commits[0].message' ${GITHUB_EVENT_PATH}`
 
 git config --global user.email "${COMMIT_EMAIL}"
 git config --global user.name "${COMMIT_NAME}"
@@ -29,7 +30,7 @@ cp -R * ../$GITHUB_PAGES_REPO_NAME
 echo "⭐️ Commit changes"
 cd ../$GITHUB_PAGES_REPO_NAME
 git add .
-git commit -m "Make auto release"
+git commit -m "Release: $COMMIT_MESSAGE"
 
 echo "⭐️ Push changes"
 git push $REPOSITORY_PATH master
