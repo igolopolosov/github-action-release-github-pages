@@ -1,6 +1,10 @@
 # action.yml
 name: 'Release GitHub Pages'
 description: 'Publish new changes from external repository'
+author: 'Igor Golopolosov <igolopolosov@gmail.com>'
 runs:
   using: 'docker'
   image: 'Dockerfile'
+branding:
+  icon: 'upload-cloud'
+  color: 'black'
