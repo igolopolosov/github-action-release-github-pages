@@ -19,18 +19,15 @@ git clone $REPOSITORY_PATH
 
 echo "⭐️ Clean old files"
 cd ./igolopolosov.github.io
-ls
 rm bundle*
 rm index.html
 
 echo "⭐️ Copying started"
 cd ../
-ls
-cp -R ./dist ./igolopolosov.github.io
+cp -R ./dist/* ./igolopolosov.github.io
 
 echo "⭐️ Commit changes"
 cd ./igolopolosov.github.io
-ls
 git add .
 git commit -m "Make auto release"
 
