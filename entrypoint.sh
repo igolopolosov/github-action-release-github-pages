@@ -5,6 +5,7 @@ REPOSITORY_PATH="https://${GITHUB_ACCESS_TOKEN}@github.com/igolopolosov/igolopol
 
 echo "⭐️ Clone igolopolosov.github.io"
 cd $GITHUB_WORKSPACE
+ls
 git clone $REPOSITORY_PATH
 
 git config --global user.email "${COMMIT_EMAIL}"
@@ -14,6 +15,8 @@ echo "⭐️ Clean old files"
 cd ./igolopolosov.github.io
 rm bundle*
 rm index.html
+cd ../
+ls
 
 echo "⭐️ Copying started"
 cd ../igor
