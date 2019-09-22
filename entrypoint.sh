@@ -4,7 +4,7 @@ REPOSITORY_PATH="https://${GITHUB_ACCESS_TOKEN}@github.com/igolopolosov/igolopol
 
 
 echo "⭐️ Clone igolopolosov.github.io"
-cd /home/runner/work/igor
+cd $GITHUB_WORKSPACE
 git clone $REPOSITORY_PATH
 
 git config --global user.email "${COMMIT_EMAIL}"
