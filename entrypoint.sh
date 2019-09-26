@@ -18,7 +18,7 @@ echo "⭐️ Clone $GITHUB_PAGES_REPO_NAME"
 cd $GITHUB_WORKSPACE
 git clone $REPOSITORY_PATH
 
-echo "⭐️ Cleane old files by running $GITHUB_PAGES_CLEANUP_SCRIPT"
+echo "⭐️ Clean old files by running $GITHUB_PAGES_CLEANUP_SCRIPT"
 cd ./$GITHUB_PAGES_REPO_NAME
 eval "$GITHUB_PAGES_CLEANUP_SCRIPT"
 
