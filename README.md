@@ -56,5 +56,6 @@ Below you'll find a description of what each option does.
 | `GITHUB_PAGES_REPO_AUTHOR`  | Name of GitHub user having github pages repository. | `env` |
 | `GITHUB_PAGES_REPO_NAME`  | Just name of your github pages repository. Usually it's `%username%.github.io`. | `env` |
 | `GITHUB_PAGES_RELEASE_BRANCH`  | The branch on github pages repo you wish to release to, for example `master`.  | `env` |
+| `GITHUB_PAGES_RELEASE_FOLDER`  | The folder on github pages repo you wish to release to, for example `docs`.  | `env` |
 | `PROJECT_BUILD_FOLDER`  | The folder in your repository that you want to deploy. If your build script compiles into a directory named `build` you'd put it here. | `env` |
 | `GITHUB_PAGES_CLEANUP_SCRIPT`  | Cleanup script to remove files from github pages repo which are going to be replaced with new build. It runs inside of Docker container which powers the action to run simple bash commands.  | `env` |
