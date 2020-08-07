@@ -5,9 +5,9 @@ echo "⭐️ Start"
 echo "⭐️ Configure git"
 
 apk add jq
-COMMIT_EMAIL=`jq '.pusher.email' ${GITHUB_EVENT_PATH}`
-COMMIT_NAME=`jq '.pusher.name' ${GITHUB_EVENT_PATH}`
-COMMIT_MESSAGE=`jq '.commits[0].message' ${GITHUB_EVENT_PATH}`
+COMMIT_EMAIL=$(jq '.pusher.email' ${GITHUB_EVENT_PATH})
+COMMIT_NAME=$(jq '.pusher.name' ${GITHUB_EVENT_PATH})
+COMMIT_MESSAGE=$(jq '.commits[0].message' ${GITHUB_EVENT_PATH})
 
 git config --global user.email "${COMMIT_EMAIL}"
 git config --global user.name "${COMMIT_NAME}"
@@ -24,7 +24,7 @@ eval "$GITHUB_PAGES_CLEANUP_SCRIPT"
 
 echo "⭐️ Copy build from $PROJECT_BUILD_FOLDER"
 cd ../$PROJECT_BUILD_FOLDER
-cp -R * ../$GITHUB_PAGES_REPO_NAME
+cp -R * ../$GITHUB_PAGES_REPO_NAME/$GITHUB_PAGES_RELEASE_FOLDER
 
 echo "⭐️ Commit changes with message: $COMMIT_MESSAGE"
 cd ../$GITHUB_PAGES_REPO_NAME
