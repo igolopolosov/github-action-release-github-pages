@@ -3,7 +3,7 @@
 Brief description:
 > This action pushes files from your build folder of your repository to github pages repo. It creates new commit in github pages repo with content of build folder.
 
-You can use this action when thress of this things are applicable to your case:
+You can use this action when three of this things are applicable to your case:
 * your website source code and `github pages` are **different** repositories ✅
 * you can build your website before on previous steps ✅ 
 * you need to release / commit and push new build to `github pages` repo every time you change something in your source code ✅
